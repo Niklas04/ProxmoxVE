@@ -93,8 +93,8 @@ spinner() {
 msg_info() {
   local msg="$1"
   echo -ne "${TAB}${YW}${HOLD}${msg}${HOLD}"
-  spinner &
-  SPINNER_PID=$!
+  #spinner &
+  #SPINNER_PID=$!
 }
 
 # This function displays a success message with a green color.
