@@ -74,12 +74,12 @@ msg_ok "Installed Change Detection"
 msg_info "Installing Browserless & Playwright"
 mkdir /opt/browserless
 $STD python3 -m pip install playwright
-$STD git clone https://github.com/browserless/chrome /opt/browserless
-$STD npm install --prefix /opt/browserless
-$STD /opt/browserless/node_modules/playwright-core/cli.js install --with-deps chrome chromium firefox webkit
-$STD npm run build --prefix /opt/browserless
-$STD npm run build:function --prefix /opt/browserless
-$STD npm prune production --prefix /opt/browserless
+git clone https://github.com/browserless/chrome /opt/browserless
+npm install --prefix /opt/browserless
+/opt/browserless/node_modules/playwright-core/cli.js install --with-deps chrome chromium firefox webkit
+npm run build --prefix /opt/browserless
+npm run build:function --prefix /opt/browserless
+npm prune production --prefix /opt/browserless
 msg_ok "Installed Browserless & Playwright"
 
 msg_info "Installing Font Packages"
