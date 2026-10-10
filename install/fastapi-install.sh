@@ -58,6 +58,14 @@ EOF
 systemctl enable -q --now fastapi
 msg_ok "Created Service"
 
+msg_info "Downloading osmosis"
+fetch_and_deploy_gh_release "osmosis" "openstreetmap/osmosis" "prebuild" "latest" "/opt" "osmosis*.zip"
+msg_ok "Downloaded osmosis"
+
+msg_info "Downloading mapsforge-writer"
+fetch_and_deploy_gh_release "mapsforge-writer" "mapsforge/mapsforge" "prebuild" "latest" "/opt" "mapsforge*.jar"
+msg_ok "Downloaded mapsforge-writer"
+
 motd_ssh
 customize
 cleanup_lxc
