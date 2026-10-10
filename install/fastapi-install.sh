@@ -14,7 +14,8 @@ update_os
 
 msg_info "Installing Dependencies (Patience)"
 $STD apt install -y \
-  git
+  git \
+  osmium-tool
 msg_ok "Installed Dependencies"
 
 PYTHON_VERSION="3.13" setup_uv
@@ -24,6 +25,7 @@ $STD uv venv --clear /opt/fastapi-app/.venv
 $STD /opt/fastapi-app/.venv/bin/python -m ensurepip --upgrade
 $STD /opt/fastapi-app/.venv/bin/python -m pip install --upgrade pip
 $STD /opt/fastapi-app/.venv/bin/python -m pip install "fastapi[standard]"
+$STD /opt/fastapi-app/.venv/bin/python -m pip install pyhgtmap
 
 msg_info "Creating Services"
 cat <<EOF >/etc/systemd/system/fastapi.service
