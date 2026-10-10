@@ -28,7 +28,7 @@ $STD /opt/fastapi-app/.venv/bin/python -m pip install --upgrade pip
 $STD /opt/fastapi-app/.venv/bin/python -m pip install "fastapi[standard]"
 $STD /opt/fastapi-app/.venv/bin/python -m pip install pyhgtmap
 $STD /opt/fastapi-app/.venv/bin/python -m pip install itsdangerous psutil
-cat <<EOF >/opt/fastapi-app/main-py
+cat <<EOF >/opt/fastapi-app/main.py
 from fastapi import FastAPI
 
 app = FastAPI()
