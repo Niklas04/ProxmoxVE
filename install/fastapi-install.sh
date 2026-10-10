@@ -23,7 +23,7 @@ mkdir -p /opt/fastapi-app
 $STD uv venv --clear /opt/fastapi-app/.venv
 $STD /opt/fastapi-app/.venv/bin/python -m ensurepip --upgrade
 $STD /opt/fastapi-app/.venv/bin/python -m pip install --upgrade pip
-$STD /opt/fastapi-app/.venv/bin/python -m pip install fastapi
+$STD /opt/fastapi-app/.venv/bin/python -m pip install "fastapi[standard]"
 
 msg_info "Creating Services"
 cat <<EOF >/etc/systemd/system/fastapi.service
@@ -34,7 +34,7 @@ After=network.target
 [Service]
 User=root
 WorkingDirectory=/opt/fastapi-app
-ExecStart=/opt/fastapi-app/venv/bin/uvicorn main:app --host 0.0.0.0 --port 8000
+ExecStart=/opt/fastapi-app/.venv/bin/uvicorn main:app --host 0.0.0.0 --port 8000
 Restart=always
 
 [Install]
