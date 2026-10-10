@@ -64,8 +64,7 @@ msg_ok "Downloaded osmosis"
 
 msg_info "Downloading mapsforge-writer"
 USE_ORIGINAL_FILENAME=true
-fetch_and_deploy_gh_release "mapsforge" "mapsforge/mapsforge" "singlefile" "latest" "/opt/mapsforge-writer" "mapsforge-map-writer*.jar"
-fetch_and_deploy_gh_release "mapsforge" "mapsforge/mapsforge" "singlefile" "latest" "/opt/mapsforge-writer" "mapsforge-poi-writer*.jar"
+fetch_and_deploy_gh_release "mapsforge" "mapsforge/mapsforge" "singlefile" "latest" "/opt/mapsforge-writer" "mapsforge*.jar"
 msg_ok "Downloaded mapsforge-writer"
 
 motd_ssh
