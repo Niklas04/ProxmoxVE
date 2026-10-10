@@ -15,7 +15,8 @@ update_os
 msg_info "Installing Dependencies"
 $STD apt install -y \
   git \
-  osmium-tool
+  osmium-tool \
+  openjdk-17-jre-headless
 msg_ok "Installed Dependencies"
 
 PYTHON_VERSION="3.13" setup_uv
@@ -63,7 +64,8 @@ fetch_and_deploy_gh_release "osmosis" "openstreetmap/osmosis" "prebuild" "latest
 msg_ok "Downloaded osmosis"
 
 msg_info "Downloading mapsforge-writer"
-fetch_and_deploy_gh_release "mapsforge" "mapsforge/mapsforge" "singlefile" "latest" "/opt/mapsforge-writer" "mapsforge*.jar"
+fetch_and_deploy_gh_release "mapsforge" "mapsforge/mapsforge" "singlefile" "latest" "/opt/mapsforge-writer" "mapsforge-map-writer*.jar"
+fetch_and_deploy_gh_release "mapsforge" "mapsforge/mapsforge" "singlefile" "latest" "/opt/mapsforge-writer" "mapsforge-poi-writer*.jar"
 msg_ok "Downloaded mapsforge-writer"
 
 motd_ssh
