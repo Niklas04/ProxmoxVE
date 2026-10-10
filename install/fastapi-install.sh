@@ -63,7 +63,7 @@ fetch_and_deploy_gh_release "osmosis" "openstreetmap/osmosis" "prebuild" "latest
 msg_ok "Downloaded osmosis"
 
 msg_info "Downloading mapsforge-writer"
-fetch_and_deploy_gh_release "mapsforge-writer" "mapsforge/mapsforge" "prebuild" "latest" "/opt" "mapsforge*.jar"
+fetch_and_deploy_gh_release "mapsforge-writer" "mapsforge/mapsforge" "singlefile" "latest" "/opt" "mapsforge*.jar"
 msg_ok "Downloaded mapsforge-writer"
 
 motd_ssh
