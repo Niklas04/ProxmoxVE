@@ -26,6 +26,11 @@ function update_script() {
   check_container_storage
   check_container_resources
 
+  if [[ ! -f /etc/systemd/system/fastapi.service ]]; then
+    msg_error "No ${APP} Installation Found!"
+    exit
+  fi
+
   VENV_PATH="/opt/fastapi-app/.venv"
 
   PYTHON_VERSION="3.13" setup_uv
@@ -36,11 +41,15 @@ function update_script() {
     $STD uv venv --clear "$VENV_PATH"
     $STD "$VENV_PATH/bin/python" -m ensurepip --upgrade
     $STD "$VENV_PATH/bin/python" -m pip install --upgrade pip
-    $STD "$VENV_PATH/bin/python" -m pip install fastapi
+    $STD "$VENV_PATH/bin/python" -m pip install "fastapi[standard]"
+    $STD "$VENV_PATH/bin/python" -m pip install pyhgtmap
+    $STD "$VENV_PATH/bin/python" -m pip install itsdangerous psutil
     msg_ok "Migrated to uv/venv"
   else
     msg_info "Updating ${APP}"
-    $STD "$VENV_PATH/bin/python" -m pip install --upgrade fastapi
+    $STD "$VENV_PATH/bin/python" -m pip install --upgrade "fastapi[standard]"
+    $STD "$VENV_PATH/bin/python" -m pip install --upgrade pyhgtmap
+    $STD "$VENV_PATH/bin/python" -m pip install --upgrade itsdangerous psutil
     msg_ok "Updated ${APP}"
   fi
 
@@ -55,4 +64,4 @@ description
 msg_ok "Completed successfully!\n"
 echo -e "${CREATING}${GN}${APP} setup has been successfully initialized!${CL}"
 echo -e "${INFO}${YW}Access it using the following URL:${CL}"
-echo -e "${GATEWAY}${BGN}http://${IP}:8000${CL}"
+echo -e "${GATEWAY}${BGN}http://${IP}${CL}"
