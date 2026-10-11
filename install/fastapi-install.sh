@@ -67,8 +67,8 @@ msg_info "Downloading mapsforge-writer"
 USE_ORIGINAL_FILENAME=true
 fetch_and_deploy_gh_release "mapsforge-map-writer" "mapsforge/mapsforge" "singlefile" "latest" "/opt/mapsforge-map-writer" "mapsforge-map-writer*.jar"
 fetch_and_deploy_gh_release "mapsforge-poi-writer" "mapsforge/mapsforge" "singlefile" "latest" "/opt/mapsforge-poi-writer" "mapsforge-poi-writer*.jar"
-rm /opt/osmosis/lib/default/mapsforge-map-writer*.jar
-rm /opt/osmosis/lib/default/mapsforge-poi-writer*.jar
+rm -f /opt/osmosis/lib/default/mapsforge-map-writer*.jar
+rm -f /opt/osmosis/lib/default/mapsforge-poi-writer*.jar
 cp /opt/mapsforge-map-writer/*.jar /opt/osmosis/lib/default/
 cp /opt/mapsforge-poi-writer/*.jar /opt/osmosis/lib/default/
 msg_ok "Downloaded mapsforge-writer"
