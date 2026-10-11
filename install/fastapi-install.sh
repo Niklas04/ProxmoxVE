@@ -15,7 +15,8 @@ update_os
 msg_info "Installing Dependencies"
 $STD apt install -y \
   git \
-  osmium-tool
+  osmium-tool \
+  openjdk-17-jre-headless
 msg_ok "Installed Dependencies"
 
 PYTHON_VERSION="3.13" setup_uv
