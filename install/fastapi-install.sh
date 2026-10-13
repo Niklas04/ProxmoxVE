@@ -15,7 +15,6 @@ update_os
 msg_info "Installing Dependencies"
 $STD apt install -y \
   git \
-  osmium-tool \
   openjdk-17-jre-headless
 msg_ok "Installed Dependencies"
 
@@ -27,7 +26,7 @@ $STD uv venv --clear /opt/fastapi-app/.venv
 $STD /opt/fastapi-app/.venv/bin/python -m ensurepip --upgrade
 $STD /opt/fastapi-app/.venv/bin/python -m pip install --upgrade pip
 $STD /opt/fastapi-app/.venv/bin/python -m pip install "fastapi[standard]"
-$STD /opt/fastapi-app/.venv/bin/python -m pip install pyhgtmap
+$STD /opt/fastapi-app/.venv/bin/python -m pip install pyhgtmap osmium
 $STD /opt/fastapi-app/.venv/bin/python -m pip install itsdangerous psutil
 cat <<EOF >/opt/fastapi-app/main.py
 from fastapi import FastAPI
